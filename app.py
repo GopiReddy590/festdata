@@ -4,7 +4,7 @@ import psycopg2
 from sqlalchemy.sql.base import NO_ARG
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:gopireddy@localhost/fest"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://qvnrfnffgkatty:010e049a28d3e09951be0a387320b77acf3c1f3add6f99d3de5383f9bfb0c8c6@ec2-52-207-74-100.compute-1.amazonaws.com:5432/da7amva7esqbme"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['SECRET_KEY'] = 'kreya22'
 db = SQLAlchemy(app)
