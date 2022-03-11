@@ -9,6 +9,16 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['SECRET_KEY'] = 'kreya22'
 db = SQLAlchemy(app)
 
+
+#------------------working function-------------------------------
+
+def rollsort(lis):
+    return lis[0]
+
+
+
+
+#-----------------------------------------------------------------
 class Sample(db.Model):
 
     __tablename__ = "festdata"
@@ -62,9 +72,28 @@ def delete():
     return redirect('/')
 
 
+@app.route('/details',methods =['GET'])
+def details():
+    data=Sample.query.all()
+    l=list()
+    for i in data:
+        d=dict()
+        lis=[str(i.refrollno),i]
+        l.append(lis)
+    # print(l)
+    l.sort(key=lambda x: x[0])
+    # print(l)
+    # for i in l :
+    #     print(i[1].refname)
+        # print(i.refrollno)
+    return render_template("details.html",data=l)
 
 
-
+@app.route('/del/<val>',methods =['GET','POST'])
+def delid(val):
+    Sample.query.filter_by(id=val).delete()
+    db.session.commit()
+    return redirect('/details')
 
 # @app.errorhandler(404) 
 # def not_found(e):
