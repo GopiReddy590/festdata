@@ -52,7 +52,7 @@ def index():
             db.session.add(details)
             db.session.commit()
 
-            return redirect('https://docs.google.com/forms/d/e/1FAIpQLSeyhghgHwBK_rTVY2yI0xUIChPrgCoaxaQHgidf5t42iGg5Zw/viewform?usp=pp_url&entry.559352220='+str(name)+'&entry.721085583='+str(rollno)+'&entry.437505012='+str(refrollno)+'&entry.822335319='+str(refname))
+            return redirect('https://docs.google.com/forms/d/e/1FAIpQLSeyhghgHwBK_rTVY2yI0xUIChPrgCoaxaQHgidf5t42iGg5Zw/viewform?usp=pp_url&entry.559352220='+str(name)+'&entry.721085583='+str(rollno)+'&entry.437505012='+str(refrollno)+'&entry.1243586020='+str(refname)+'&entry.443565211='+str(email))
         return render_template('index.html',msg="Reference is not available for "+str(refrollno)+" .")
 
 
