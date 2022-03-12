@@ -59,7 +59,7 @@ def index():
     
 
     #     return render_template('data_entry.html',message='record submitted',color='success')
-    #https://docs.google.com/forms/d/e/1FAIpQLScbRRFySGjz2KPTfHtQQVnPmUP5tNSdhClWCJ6U6umUNJJu7g/viewform?usp=sf_link&entry.553411993=+str(name)+'&entry.1125976599='+str(rollno)+'&entry.801581831'+str(refrollno)+'&entry.822335319'+str(refname))
+    #https://docs.google.com/forms/d/e/1FAIpQLScbRRFySGjz2KPTfHtQQVnPmUP5tNSdhClWCJ6U6umUNJJu7g/viewform?usp=sf_link&entry.553411993=+str(name)+'&entry.1125976599='+str(rollno)+'&entry.801581831'+str(refrollno)+'&entry.1243586020'+str(refname)+'&entry.443565211='+str(email))
 
     # return render_template('data_entry.html')
     return render_template('index.html')
