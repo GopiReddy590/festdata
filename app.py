@@ -40,26 +40,27 @@ def index():
         email = request.form["email"]
         refname = request.form["refname"]
         refrollno = request.form["refrollno"]
-        #refroll=str(refrollno).upper()
+        a=str(refrollno).lower()
+        b=str(a).upper()
 
-        count=Sample.query.filter_by(refrollno=refrollno).all()
+        count=Sample.query.filter_by(refrollno=b).all()
         print(len(count))
 
         if len(count)==1 or len(count)==0 :
 
-            details = Sample(name = name ,rollno=rollno, email=email, refname= refname,refrollno=refrollno)
+            details = Sample(name = name ,rollno=rollno, email=email, refname= refname,refrollno=b)
 
             db.session.add(details)
             db.session.commit()
 
-            return redirect('https://docs.google.com/forms/d/e/1FAIpQLSeyhghgHwBK_rTVY2yI0xUIChPrgCoaxaQHgidf5t42iGg5Zw/viewform?usp=pp_url&entry.559352220='+str(name)+'&entry.721085583='+str(rollno)+'&entry.437505012='+str(refrollno)+'&entry.1243586020='+str(refname)+'&entry.443565211='+str(email))
-        return render_template('index.html',msg="Reference is not available for "+str(refrollno)+" .")
+            return redirect('https://docs.google.com/forms/d/e/1FAIpQLSeyhghgHwBK_rTVY2yI0xUIChPrgCoaxaQHgidf5t42iGg5Zw/viewform?usp=pp_url&entry.559352220='+str(name)+'&entry.721085583='+str(rollno)+'&entry.437505012='+str(refrollno)+'&entry.822335319='+str(refname))
+        return render_template('index.html',msg="Reference is not available for "+str(b)+" .")
 
 
     
 
     #     return render_template('data_entry.html',message='record submitted',color='success')
-    #https://docs.google.com/forms/d/e/1FAIpQLScbRRFySGjz2KPTfHtQQVnPmUP5tNSdhClWCJ6U6umUNJJu7g/viewform?usp=sf_link&entry.553411993=+str(name)+'&entry.1125976599='+str(rollno)+'&entry.801581831'+str(refrollno)+'&entry.1243586020'+str(refname)+'&entry.443565211='+str(email))
+    #https://docs.google.com/forms/d/e/1FAIpQLScbRRFySGjz2KPTfHtQQVnPmUP5tNSdhClWCJ6U6umUNJJu7g/viewform?usp=sf_link&entry.553411993=+str(name)+'&entry.1125976599='+str(rollno)+'&entry.801581831'+str(refrollno)+'&entry.822335319'+str(refname))
 
     # return render_template('data_entry.html')
     return render_template('index.html')
